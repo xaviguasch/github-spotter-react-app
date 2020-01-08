@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './layout/Navbar'
 import Users from './users/Users'
+import Spinner from './layout/Spinner'
 import axios from 'axios'
 import './App.css'
 
@@ -24,9 +25,13 @@ class App extends Component {
     return (
       <div className='App'>
         <Navbar />
-        <div className='container'>
-          <Users loading={this.state.loading} users={this.state.users} />
-        </div>
+        {this.state.loading ? (
+          <Spinner />
+        ) : (
+          <div className='container'>
+            <Users loading={this.state.loading} users={this.state.users} />
+          </div>
+        )}
       </div>
     )
   }

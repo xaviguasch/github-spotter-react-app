@@ -43,11 +43,6 @@ const App = () => {
     setLoading(false)
   }
 
-  const clearUsers = () => {
-    setUsers([])
-    setLoading(false)
-  }
-
   const showAlert = (msg, type) => {
     setAlert({ msg, type })
 
@@ -70,11 +65,7 @@ const App = () => {
                 path='/'
                 render={props => (
                   <Fragment>
-                    <Search
-                      clearUsers={clearUsers}
-                      showClear={users.length > 0 ? true : false}
-                      setAlert={showAlert}
-                    />
+                    <Search setAlert={showAlert} />
                     <Users />
                   </Fragment>
                 )}
